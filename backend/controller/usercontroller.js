@@ -1,14 +1,14 @@
-const users = require("../model/usermodel")
+import User from "../model/usermodel.js";
 
-const getusersforsidebar = async(req,res)=>{
-          try {
-            const loggedinuser = req.user._id
-            const fillterinuser = await users.find({_id: {$eq:loggedinuser}}).select("-password")
-            res.status(200).json(fillterinuser)
-          } catch (error) {
-            console.log("error in getuserforsidebarcontroller:", error.message);
-            res.status(500).json({ error: "External server error" });
-          }
-}
+export const getUsersForSidebar = async (req, res) => {
+	try {
+		const loggedInUserId = req.user._id;
 
-module.exports = {getusersforsidebar}
+		const filteredUsers = await User.find({ _id: { $ne: loggedInUserId } }).select("-password");
+
+		res.status(200).json(filteredUsers);
+	} catch (error) {
+		console.error("Error in getUsersForSidebar: ", error.message);
+		res.status(500).json({ error: "Internal server error" });
+	}
+};
