@@ -10,7 +10,7 @@ const useGetConversation = () => {
             setLoading(true);
             
                 try {
-                    const response = await fetch('/api/users', {
+                    const response = await fetch('https://reactjs-e-comer-backend.onrender.com/api/users', {
                         method: 'GET',
                         headers: {
                             Accept: 'application/json',

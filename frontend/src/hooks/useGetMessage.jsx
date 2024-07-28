@@ -14,7 +14,7 @@ const useGetMessage = ()=>{
     
           
             try {
-                const respones = await fetch(`/api/messages/${SelectedConversation._id}`,{
+                const respones = await fetch(`https://reactjs-e-comer-backend.onrender.com/api/messages/${SelectedConversation._id}`,{
                     method: 'GET',
                     headers: {
                         Accept: 'application/json',

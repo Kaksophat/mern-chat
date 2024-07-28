@@ -25,7 +25,7 @@ const  handlesubmit = async (e)=>{
     }
   
     try {
-        const respones = await fetch("/api/auth/signup",{
+        const respones = await fetch("https://reactjs-e-comer-backend.onrender.com/api/auth/signup",{
             method:'POST',
             headers:{
               Accept: 'application/form-data',

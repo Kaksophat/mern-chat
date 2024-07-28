@@ -10,7 +10,7 @@ const usesendmessages = () => {
 
     try {
       const respones = await fetch(
-        `/api/messages/send/${SelectedConversation._id}`,
+        `https://reactjs-e-comer-backend.onrender.com/api/messages/send/${SelectedConversation._id}`,
         {
           method: "POST",
           headers: {

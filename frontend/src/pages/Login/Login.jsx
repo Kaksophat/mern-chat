@@ -12,7 +12,7 @@ const Login = () => {
   const handlesubmit = async(e)=>{
        e.preventDefault()
     try {
-      const respones = await fetch("/api/auth/login",{
+      const respones = await fetch("https://reactjs-e-comer-backend.onrender.com/api/auth/login",{
           method:'POST',
           headers:{
             Accept: 'application/form-data',
