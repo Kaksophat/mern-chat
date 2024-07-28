@@ -10,9 +10,9 @@ const App = () => {
   return (
    <div className="p-4 h-screen flex items-center justify-center">
    <Routes >
-     <Route path="/" element={authuser ? <Home/> : <Navigate to="/login"/>} />
-     <Route path="/login" element={authuser ? <Navigate to="/"/> : <Login/>} />
-     <Route path="/signup" element={authuser ? <Navigate to="/"/> : <Signup/>} />
+     <Route path="/" element={ <Home/> } />
+     <Route path="/login" element={<Login/>} />
+     <Route path="/signup" element={<Signup/>} />
    </Routes>
    <Toaster />
    </div>

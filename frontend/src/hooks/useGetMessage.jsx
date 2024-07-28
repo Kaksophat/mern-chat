@@ -12,7 +12,7 @@ const useGetMessage = ()=>{
         const  getMessage = async()=>{
             setloading(true)
     
-          if(localStorage.getItem('chat-user')){
+          
             try {
                 const respones = await fetch(`/api/messages/${SelectedConversation._id}`,{
                     method: 'GET',
@@ -36,10 +36,8 @@ const useGetMessage = ()=>{
                 setloading(false)
             }
           }
-          else{
-            console.log("error token");
-          }
-          }
+         
+          
           if(SelectedConversation?._id) getMessage()
      },[SelectedConversation._id, setMessages])
 

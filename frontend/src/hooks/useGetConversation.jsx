@@ -8,7 +8,7 @@ const useGetConversation = () => {
     useEffect(() => {
         const getConversation = async () => {
             setLoading(true);
-            if (localStorage.getItem('chat-user')) {
+            
                 try {
                     const response = await fetch('/api/users', {
                         method: 'GET',
@@ -32,11 +32,8 @@ const useGetConversation = () => {
                 } finally {
                     setLoading(false);
                 }
-            } else {
-                console.error('No chat user found in localStorage');
-                setLoading(false);
-            }
-        };
+            } 
+        
 
         getConversation();
     }, []);

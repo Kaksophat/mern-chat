@@ -11,9 +11,11 @@ const Logoutbutton = () => {
           
       }) 
       const data = await respones.json()
-      console.log(data);
+      if (data.error) {
+				throw new Error(data.error);
+			}
       localStorage.removeItem("chat-user")
-      window.location.replace('/login')
+      window.location.replace("/login")
       setauthcontext(null)
   } catch (error) {
       console.log(error.message)

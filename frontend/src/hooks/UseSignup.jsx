@@ -3,18 +3,18 @@ import  { useState } from 'react'
 const useSignup = () => {
     const [Loading,setloading] = useState(false)
 
-    const signup = async({fullname,username,password,comfirmpassword,gender})=>{
-        const success = handleInputErrors({fullname,username,password,comfirmpassword,gender})
+    const signup = async({fullName,username,password,comfirmpassword,gender})=>{
+        const success = handleInputErrors({fullName,username,password,comfirmpassword,gender})
         if (success) {
             return;
         }
 
         setloading(true)
         try {
-            const respones = await fetch("http://localhost:4000/api/auth/signup",{
+            const respones = await fetch("/api/auth/signup",{
                 method:'POST',
                 headers:{"Content-Type": "application/json"},
-                body: JSON.stringify({fullname,username,password,comfirmpassword,gender})
+                body: JSON.stringify({fullName,username,password,comfirmpassword,gender})
             }) 
             const data = await respones.json()
             console.log(data);
@@ -32,8 +32,8 @@ const useSignup = () => {
 
 export default useSignup
 
-function handleInputErrors({fullname,username,password,comfirmpassword,gender}){
-    if(!fullname || !username || !password || ! comfirmpassword || !gender){
+function handleInputErrors({fullName,username,password,comfirmpassword,gender}){
+    if(!fullName || !username || !password || ! comfirmpassword || !gender){
         toast.error("please fill in all fields.")
         return false
     }
